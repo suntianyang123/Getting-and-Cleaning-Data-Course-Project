@@ -53,6 +53,6 @@ result <- data %>%
         summarize_all(.fun = mean)
         
 
-## 7 print the result.
+## 7 Print the result.
 
 print(result)
