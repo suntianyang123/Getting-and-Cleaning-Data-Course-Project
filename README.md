@@ -3,33 +3,33 @@
 
 ## 1 Set the work directory.
 
-setwd("/Users/suntianyang/Documents/R/UCI HAR Dataset")
+> setwd("/Users/suntianyang/Documents/R/UCI HAR Dataset")
 
 
 ## 2 Merges the training and the test sets to create one data set.
 
-X_train <- read.table("./train/X_train.txt")
-X_test <- read.table("./test/X_test.txt")
-X_subject <- rbind(X_train, X_test)
+> X_train <- read.table("./train/X_train.txt")
+> X_test <- read.table("./test/X_test.txt")
+> X_subject <- rbind(X_train, X_test)
 
 
 ## 3 Extracts only the measurements on the mean and standard deviation for each measurement.
 
-features <- read.table("features.txt")
-ms_col <- grep("mean\\(|std\\(", features$V2)
-subject_mean_std <- X_subject[, ms_col]
+> features <- read.table("features.txt")
+> ms_col <- grep("mean\\(|std\\(", features$V2)
+> subject_mean_std <- X_subject[, ms_col]
 
 
 ## 4 Uses descriptive activity names to name the activities in the data set.
 
-y_train <- read.table("./train/y_train.txt")
-y_test <- read.table("./test/y_test.txt")
-library(stringr)
-activity <- str_replace_all(rbind(y_train, y_test)$V1,
-                            c("1" = "walking", "2" = "walking_upstairs",
-                              "3" = "walking_downstairs", "4" = "sitting",
-                              "5" = "standing", "6" = "laying"))
-subject_mean_std <- cbind(activity, subject_mean_std)
+> y_train <- read.table("./train/y_train.txt")
+> y_test <- read.table("./test/y_test.txt")
+> library(stringr)
+> activity <- str_replace_all(rbind(y_train, y_test)$V1,
+>                             c("1" = "walking", "2" = "walking_upstairs",
+>                               "3" = "walking_downstairs", "4" = "sitting",
+>                               "5" = "standing", "6" = "laying"))
+> subject_mean_std <- cbind(activity, subject_mean_std)
 
 
 ## 5 Appropriately labels the data set with descriptive variable names.
