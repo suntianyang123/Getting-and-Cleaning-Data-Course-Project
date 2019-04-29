@@ -1,1 +1,1 @@
-# Getting-and-Cleaning-Data-Course-Project
+# Discriptions of the variables in the result.txt #
