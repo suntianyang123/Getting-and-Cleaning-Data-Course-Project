@@ -28,7 +28,7 @@ subject_mean_std <- cbind(activity, subject_mean_std)
 var_names <- as.character(features[ms_col, ]$V2)
 colnames(subject_mean_std)[-1] <- var_names
 ```
-## 6 From the dataset in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+## 6 From the dataset in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
 ``` R
 subject_train <- read.table("./train/subject_train.txt")
 subject_test <- read.table("./test/subject_test.txt")
@@ -42,7 +42,7 @@ result <- data %>%
         group_by(subject, activity) %>%
         summarize_all(.fun = mean)
 ```       
-## 7 Print the result.
+## 7 Print the result
 ``` R
 print(result)
 ```
